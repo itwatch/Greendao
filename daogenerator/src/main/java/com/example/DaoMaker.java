@@ -1,5 +1,7 @@
 package com.example;
 
+import java.io.File;
+
 import de.greenrobot.daogenerator.DaoGenerator;
 import de.greenrobot.daogenerator.Entity;
 import de.greenrobot.daogenerator.Schema;
@@ -12,9 +14,11 @@ public class DaoMaker {
         Schema schema = new Schema(1, "com.student.entity");
         addstudentSchema(schema);
         addorkSchema(schema);
+        File A=new File("app\\src\\main\\java-gen");
+        String filePath=A.getAbsolutePath();
         schema.setDefaultJavaPackageDao("com.student.dao");
         try {
-            new DaoGenerator().generateAll(schema, "C:\\Users\\Administrator\\Desktop\\MyApplication\\app\\src\\main\\java-gen");
+            new DaoGenerator().generateAll(schema,filePath);
         } catch (Exception e) {
             e.printStackTrace();
         }
